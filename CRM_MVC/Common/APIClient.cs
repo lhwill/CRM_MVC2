@@ -47,19 +47,27 @@ namespace CRM_MVC.Common
                 default:
                     break;
             }
-            //等待请求的过程
-            task.Wait();
-            //接收响应的结果
-            var response = task.Result;
-            //判断响应的状态码是成功时候
-            if (response.IsSuccessStatusCode)
+            try
             {
-                //从响应对象的内容中读取字符串
-                var read = response.Content.ReadAsStringAsync();
-                //等待读取的过程
-                read.Wait();
-                //接收读取的结果-json
-                json = read.Result;
+                //等待请求的过程
+                task.Wait();
+                //接收响应的结果
+                var response = task.Result;
+                //判断响应的状态码是成功时候
+                if (response.IsSuccessStatusCode)
+                {
+                    //从响应对象的内容中读取字符串
+                    var read = response.Content.ReadAsStringAsync();
+                    //等待读取的过程
+                    read.Wait();
+                    //接收读取的结果-json
+                    json = read.Result;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
             }
             return json;
         }

@@ -25,7 +25,7 @@ namespace CRM_MVC.Controllers
             if (!string.IsNullOrEmpty(json))
             {
                 HttpContext.Session.SetString("user", json);
-                return Redirect("/Employee/index");
+                return Redirect("/Employee/index11");
             }
 
             return View();

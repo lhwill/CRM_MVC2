@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using static CRM_MVC.Common.CustomExceptionMiddleWareOption;
 
 namespace CRM_MVC
 {
@@ -53,7 +52,7 @@ namespace CRM_MVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            app.UseCustomErrorPages();
 
             //用户session
             app.UseSession();
@@ -68,22 +67,24 @@ namespace CRM_MVC
             });
 
             app.UseStaticFiles();
-            app.UseCustomException(new CustomExceptionMiddleWareOption(
-                    handleType: CustomExceptionHandleType.PageHandle,  //跳转网页处理方式
-                    jsonHandleUrlKeys: new PathString[] { "/api" },//Json处理方式的Url关键字
-                    errorHandingPath: "/home/error"));//错误跳转页面
+            
          
 
         }
        
 
-    }
-    public static class CustomExceptionMiddleWareExtensions
-    {
 
-        public static IApplicationBuilder UseCustomException(this IApplicationBuilder app, CustomExceptionMiddleWareOption option)
-        {
-            return app.UseMiddleware<CustomExceptionMiddleWare>(option);
-        }
     }
+    public static class CustomErrorPagesExtensions
+        {
+            public static IApplicationBuilder UseCustomErrorPages(this IApplicationBuilder app)
+            {
+                if (app == null)
+                {
+                    throw new ArgumentNullException(nameof(app));
+                }
+
+                return app.UseMiddleware<CustomErrorPagesMiddleware>();
+            }
+        }
 }

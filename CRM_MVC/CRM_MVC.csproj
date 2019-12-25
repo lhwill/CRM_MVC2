@@ -1,7 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>CRM_MVC.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +33,7 @@
   <ItemGroup>
     <None Include="wwwroot\images\login\logo.psd" />
     <None Include="wwwroot\js\index.js" />
+    <None Include="wwwroot\js\main.js" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\static\admin\fonts\iconfont.js" />
     <None Include="wwwroot\static\admin\fonts\iconfont.svg" />
