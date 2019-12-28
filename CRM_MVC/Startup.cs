@@ -29,7 +29,6 @@ namespace CRM_MVC
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => false;//关闭GDPR规范    
-                                                              //  options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             //保存到内存
             services.AddDistributedMemoryCache();
@@ -63,7 +62,7 @@ namespace CRM_MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=EmployeeInfo}/{action=Login}/{id?}");
+                    pattern: "{controller=Employee}/{action=Login}/{id?}");
             });
 
             app.UseStaticFiles();

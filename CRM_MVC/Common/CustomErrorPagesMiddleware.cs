@@ -39,7 +39,7 @@ namespace CRM_MVC.Common
 
                 if (context.Response.HasStarted)
                 {
-                    _logger.LogWarning("The response has already started, the error page middleware will not be executed.");
+                    _logger.LogWarning("发生警告");
                     throw;
                 }
                 try

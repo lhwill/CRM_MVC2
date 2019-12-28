@@ -13,7 +13,8 @@ namespace CRM_MVC.Controllers
 {
     public class EmployeeController : Controller
     {
-       
+
+        #region 员工登录
         public IActionResult Login()
         {
             return View();
@@ -25,13 +26,14 @@ namespace CRM_MVC.Controllers
             if (!string.IsNullOrEmpty(json))
             {
                 HttpContext.Session.SetString("user", json);
-                return Redirect("/Employee/index11");
+                return RedirectToAction("Index");
             }
 
             return View();
         }
+        #endregion
 
-
+        #region 系统主界面
         public IActionResult Index()
         {
             string json = Encoding.UTF8.GetString(HttpContext.Session.Get("user"));
@@ -43,7 +45,8 @@ namespace CRM_MVC.Controllers
 
             return View();
         }
-
-
+        #endregion
     }
+
+        
 }

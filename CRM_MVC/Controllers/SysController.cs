@@ -13,11 +13,16 @@ namespace CRM_MVC.Controllers
 {
     public class SysController : Controller
     {
+        #region 销售机会
         public IActionResult SaleChance()
         {
+            //控制器项视图弹窗方式
+            Response.WriteAsync("<script>alert('dd');location.href='/Employee/login'</script>");
             return View();
         }
+        #endregion
 
+        #region 菜单信息
         public IActionResult MenuInfo()
         {
             string json = Encoding.UTF8.GetString(HttpContext.Session.Get("user"));
@@ -25,6 +30,13 @@ namespace CRM_MVC.Controllers
             List<MenuInfo> list = JsonConvert.DeserializeObject<List<MenuInfo>>(APIClient.GetApiResult("get", "api/baseinfo/getmenu/" + em.EId));
             ViewBag.menu = list;
             return View();
+        } 
+        #endregion
+
+        public IActionResult Employee()
+        {
+            return View();
+
         }
 
     }
