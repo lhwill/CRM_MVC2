@@ -17,10 +17,10 @@
         </p>
 
         <p>
-            <label>年龄：</label><input v-text="Age" />
+            <label>年龄：</label><input v-model="Age" type="text" />
         </p>
 
-        <button class="btn btn-primary" v-on:click="Age++;if(Name=='小明')Name='吉姆格林';else Name='小明';">年龄递增</button>
+        <button class="btn btn-primary" v-on:click="Age++;if(Name=='魏许东')Name='韩艳琴';else Name='魏许东';">年龄递增</button>
 
         <p>
             <label>学校：</label> <label v-html="School" v-bind:style="{color:FColor}"></label>
@@ -33,18 +33,21 @@
             是否成人：<label v-if="Age>18">大人</label> <label v-else>小屁孩</label>
         </p>
         <p>
-            姓名：{{Name}}，年龄：{{Age}},学校：{{School}}
+          信息汇总：  姓名：{{Name}}，年龄：{{Age}},学校：{{School}}
         </p>
     </div>
 
     <div class="divFruit">
         <ul>
-            <li v-for="value in fruits">{{value}}</li>
+            <li v-for="a in fruits">{{a}}</li>
         </ul>
+
+
         <ol>
             <li v-for="(value,key) in data">{{key}}:{{value}}</li>
 
         </ol>
+
         <h3 v-for="(value,key,index) in data">{{index}}-{{key}}:{{value}}</h3>
     </div>
 
@@ -106,10 +109,10 @@
     var data1 = { fruits: ['苹果', '香蕉', '梨', '火龙果', '榴莲'] };
 
     //双向绑定
-    var vue1 = new Vue({
-        el: "#divStu",
-        data: data
-    });
+        var vue1 = new Vue({
+            el: "#divStu",
+            data: data
+        });
 
     //循环绑定数据
     var vue2 = new Vue({

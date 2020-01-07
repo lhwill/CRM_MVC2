@@ -34,12 +34,18 @@ namespace CRM_MVC.Controllers
         }
         #endregion
 
-        public IActionResult Show()
+        public IActionResult VueShow()
         {
             return View();
 
         }
         public IActionResult VueTest()
+        {
+            return View();
+
+        }
+
+        public IActionResult VueAdd()
         {
             return View();
 
