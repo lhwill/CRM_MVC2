@@ -27,12 +27,28 @@ namespace CRM_MVC.Controllers
         {
             string json = Encoding.UTF8.GetString(HttpContext.Session.Get("user"));
             EmployeeInfo em = JsonConvert.DeserializeObject<EmployeeInfo>(json);
-            List<MenuInfo> list = JsonConvert.DeserializeObject<List<MenuInfo>>(APIClient.GetApiResult("get", "api/baseinfo/getmenu/" + em.EId));
+            string result = APIClient.GetApiResult("get", "api/baseinfo/getmenu/" + em.EId);
+            List<MenuInfo> list = JsonConvert.DeserializeObject<List<MenuInfo>>(result);
             ViewBag.menu = list;
             return View();
-        } 
+        }
         #endregion
 
+        public IActionResult Show()
+        {
+            return View();
+
+        }
+        public IActionResult VueTest()
+        {
+            return View();
+
+        }
+        public IActionResult AddMenu()
+        {
+            return View();
+
+        }
         public IActionResult Employee()
         {
             return View();

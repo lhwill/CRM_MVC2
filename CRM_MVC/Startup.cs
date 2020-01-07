@@ -33,7 +33,7 @@ namespace CRM_MVC
             //保存到内存
             services.AddDistributedMemoryCache();
             services.AddSession();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -16,7 +16,7 @@ namespace CRM_MVC.Models
         public string IDCard { get; set; }
         public int DID { get; set; }
         public bool Sex { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
 
 

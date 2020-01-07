@@ -39,14 +39,22 @@ namespace CRM_MVC.Controllers
             string json = Encoding.UTF8.GetString(HttpContext.Session.Get("user"));
             EmployeeInfo em = JsonConvert.DeserializeObject<EmployeeInfo>(json);
             ViewBag.em = em;
-            List<MenuInfo> list = JsonConvert.DeserializeObject<List<MenuInfo>>(APIClient.GetApiResult("get", "api/baseinfo/getmenu/" + em.EId));
+            string result = APIClient.GetApiResult("get", "api/baseinfo/getmenu/" + em.EId);
+            List<MenuInfo> list = JsonConvert.DeserializeObject<List<MenuInfo>>(result);
             ViewBag.menu = list;
             ViewBag.pmenu = list.Where(m => m.PId == 0).ToList();
 
+            em.EName += "888";
+            string upt = APIClient.GetApiResult("put", "api/baseinfo/UptEmp", em);
+            ////string add = APIClient.GetApiResult("post", "/api/baseinfo/AddEMp/", em);
+            //if (string.IsNullOrEmpty(upt))
+            //{
+
+            //}
             return View();
         }
         #endregion
     }
 
-        
+
 }

@@ -39,9 +39,9 @@
     <None Include="wwwroot\static\admin\fonts\iconfont.svg" />
     <None Include="wwwroot\static\admin\js\common.js" />
     <None Include="wwwroot\static\admin\js\main.js" />
-    <None Include="wwwroot\static\admin\js\module\dialog.js" />
-    <None Include="wwwroot\static\admin\js\module\formate.js" />
-    <None Include="wwwroot\static\admin\js\module\tool.js" />
+    <None Include="wwwroot\js\module\dialog.js" />
+    <None Include="wwwroot\js\module\formate.js" />
+    <None Include="wwwroot\js\module\tool.js" />
     <None Include="wwwroot\static\admin\layui\font\iconfont.svg" />
     <None Include="wwwroot\static\admin\layui\layui.js" />
     <None Include="wwwroot\static\admin\layui\lay\dest\layui.all.js" />
@@ -186,6 +186,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />

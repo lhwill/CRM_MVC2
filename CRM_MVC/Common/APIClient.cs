@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRM_MVC.Common
 {
-    
+
     public class APIClient
     {
 
@@ -26,7 +26,7 @@ namespace CRM_MVC.Common
             //创建一个Http客户端对象
             HttpClient client = new HttpClient();
             //指定访问WebApi的uri地址
-            client.BaseAddress = new Uri("http://localhost:14059/");
+            client.BaseAddress = new Uri("http://localhost:8081/");
             /*根据不同的动作执行不同的方法*/
             switch (verbs.ToLower())
             {
@@ -49,15 +49,13 @@ namespace CRM_MVC.Common
             }
             try
             {
-                //等待请求的过程
                 task.Wait();
-                //接收响应的结果
-                var response = task.Result;
+                HttpResponseMessage resp = task.Result;
                 //判断响应的状态码是成功时候
-                if (response.IsSuccessStatusCode)
+                if (resp.IsSuccessStatusCode)
                 {
                     //从响应对象的内容中读取字符串
-                    var read = response.Content.ReadAsStringAsync();
+                    var read = resp.Content.ReadAsStringAsync();
                     //等待读取的过程
                     read.Wait();
                     //接收读取的结果-json
@@ -66,7 +64,6 @@ namespace CRM_MVC.Common
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
             return json;
